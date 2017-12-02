@@ -94,7 +94,7 @@ def plot_results(x, y, window_size, sigma_value=1,
     print(y)
     y_av = computeMovingAvg(y, window_size)
     plt.plot(x, y_av, color='green')
-    plt.xlim(0, 1000)
+    plt.xlim(0, 50001)
     plt.xlabel(text_xlabel)
     plt.ylabel(text_ylabel)
 
@@ -105,8 +105,11 @@ def plot_results(x, y, window_size, sigma_value=1,
     else:
         events = anomalies_stationary_stddev(y, window_size=window_size, sigma=sigma_value)
 
-    x_anomaly = np.fromiter(events['anomalies_dict'].items(), dtype=int, count=len(events['anomalies_dict']))
-    y_anomaly = np.fromiter(events['anomalies_dict'].items(), dtype=float,
+    print("hello")
+    print (events['anomalies_dict'].keys())
+    print (events['anomalies_dict'].values())
+    x_anomaly = np.fromiter(events['anomalies_dict'].keys(), dtype=int, count=len(events['anomalies_dict']))
+    y_anomaly = np.fromiter(events['anomalies_dict'].values(), dtype=float,
                                             count=len(events['anomalies_dict']))
     plt.plot(x_anomaly, y_anomaly, "r*", markersize=12)
 

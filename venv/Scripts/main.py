@@ -16,9 +16,9 @@ employees = []
 my_path = os.path.abspath(os.path.dirname(__file__))
 parent_directory1 = os.path.split(my_path)[0]
 parent_directory2 = os.path.split(parent_directory1)[0]
-path = os.path.join(parent_directory2, 'Data', 'report1.csv')
+path1 = os.path.join(parent_directory2, 'Data', 'report1.csv')
 
-with open(path) as f:
+with open(path1) as f:
     rows = csv.reader(f)
     for row in rows:
         assets.append(row[3])
@@ -31,6 +31,7 @@ with open(path) as f:
         employees.append(row[13])
 
 assets = assets[1:]
+assets.append(1155651.6555)
 profits = profits[1:]
 liabilities = liabilities[1:]
 assets_st = assets_st[1:]
@@ -51,9 +52,10 @@ Yp.Assets = Yp.Assets.astype(float)
 
 #print(Xp)
 #print(Yp)
+#AnomalyDetection.plotData(Yp)
 
 # plot the results
-AnomalyDetection.plot_results(Xp, Yp, window_size=10, text_xlabel="Index", sigma_value=3,
+AnomalyDetection.plot_results(Xp, Yp, window_size=100, text_xlabel="Index", sigma_value=3,
              text_ylabel="Assets")
 events = AnomalyDetection.anomalies_stationary_stddev(Yp, window_size=5, sigma=3)
 
