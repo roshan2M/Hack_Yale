@@ -1,6 +1,7 @@
 import csv
 import os
 import AnomalyDetection
+import pandas as pd
 
 
 assets = []
@@ -38,4 +39,23 @@ equity = equity[1:]
 sales = sales[1:]
 employees = employees[1:]
 
-AnomalyDetection.plotData(assets)
+X = []
+Y = []
+for i in range(len(assets)):
+    X.append(i)
+
+
+Xp = pd.DataFrame(X,columns = ['Index'])
+Yp = pd.DataFrame(assets,columns = ['Assets'])
+Yp.Assets = Yp.Assets.astype(float)
+
+#print(Xp)
+#print(Yp)
+
+# plot the results
+AnomalyDetection.plot_results(Xp, Yp, window_size=10, text_xlabel="Index", sigma_value=3,
+             text_ylabel="Assets")
+events = AnomalyDetection.anomalies_stationary_stddev(Yp, window_size=5, sigma=3)
+
+# Display the anomaly dict
+print("Information about the anomalies model:{}".format(events))
