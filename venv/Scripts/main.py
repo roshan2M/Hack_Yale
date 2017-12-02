@@ -1,4 +1,5 @@
 import csv
+import os
 
 assets = []
 profits = []
@@ -9,7 +10,12 @@ equity = []
 sales = []
 employees = []
 
-with open('report1.csv') as f:
+my_path = os.path.abspath(os.path.dirname(__file__))
+parent_directory1 = os.path.split(my_path)[0]
+parent_directory2 = os.path.split(parent_directory1)[0]
+path = os.path.join(parent_directory2, 'Data', 'report1.csv')
+
+with open(path) as f:
     rows = csv.reader(f)
     for row in rows:
         assets.append(row[3])
@@ -29,3 +35,5 @@ assets_lt = assets_lt[1:]
 equity = equity[1:]
 sales = sales[1:]
 employees = employees[1:]
+
+print(assets)
