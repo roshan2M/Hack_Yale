@@ -1,5 +1,7 @@
 import csv
 import os
+import AnomalyDetection
+
 
 assets = []
 profits = []
@@ -36,4 +38,4 @@ equity = equity[1:]
 sales = sales[1:]
 employees = employees[1:]
 
-print(assets)
+AnomalyDetection.plotData(assets)
