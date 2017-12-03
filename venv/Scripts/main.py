@@ -1,6 +1,7 @@
 import csv
 import os
 import distribution
+import outliers
 import pandas as pd
 import numpy as np
 
@@ -38,6 +39,10 @@ Y4 = pandaStrtoFlt(Y4)
 trainingFrames = [Y1, Y2]
 YT = pd.concat(trainingFrames)
 
+print(outliers.determineOutliers(Y3,3))
+print(outliers.determineOutliers(Y4,3))
+
+"""
 hist1 = distribution.stdInterval(Y1,4)
 hist2 = distribution.stdInterval(Y2,4)
 hist3 = distribution.stdInterval(Y3,4)
@@ -51,3 +56,4 @@ ans2 = distribution.findAnomalies(hist1,hist2,hist4,0.1)
 
 print(ans1)
 print(ans2)
+"""

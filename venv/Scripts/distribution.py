@@ -88,6 +88,7 @@ def stdInterval(set,interval):
     interWidth =(100/interval)
     hist = np.zeros((7,interval),dtype=np.int)
 
+#filling the histogram with values - scans through all 50 000 values and its sub sections
     for j in range(len(set.assets)):
         for i in range(1,interval+1):
             if(scaled.iat[j,3] <i*interWidth and scaled.iat[j,3] > (i-1)*interWidth):
