@@ -2,6 +2,7 @@ import csv
 import os
 import distribution
 import outliers
+import simple_test
 import pandas as pd
 import numpy as np
 
@@ -39,9 +40,11 @@ Y4 = pandaStrtoFlt(Y4)
 trainingFrames = [Y1, Y2]
 YT = pd.concat(trainingFrames)
 
-print(outliers.determineOutliers(Y3,3))
-print(outliers.determineOutliers(Y4,3))
+print(simple_test.assetTest(Y4)) #tests if assets add up - returns a list of all ids who do not match
 
+"""
+print(outliers.determineOutliers(Y3,3))
+print(outliers.determineOutliers(Y4,3))"""
 """
 hist1 = distribution.stdInterval(Y1,4)
 hist2 = distribution.stdInterval(Y2,4)
