@@ -1,8 +1,9 @@
 # Hack_Yale
 
-Using Python 3.6.2
+View the project on Devpost at https://devpost.com/software/anomaly-detection.
 
-Needed Libraries
+## Needed Libraries
+Using Python 3.6.2
 Tensorflow 1.4.0
 Keras 2.0.4
 Matplotlib 2.1.0
